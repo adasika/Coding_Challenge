@@ -1,0 +1,12 @@
+<form method = 'post' enctype = 'multipart/form-data'>  <!--Need this enctype here else the files won't display properly-->
+  {% csrf_token %}
+    {{ form.as_p }}
+  <button type = 'Submit'> Submit </button>
+</form>
+{% if rendered_form %}
+  <h2> Name: {{rendered_form.name}} </h2>
+  <img src = '{{rendered_form.image.url}}'>
+{% else %}
+  <h2> Name/Image not Selected </h2>
+{% endif %}
+
